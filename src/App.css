@@ -24,6 +24,7 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes ballRoll {
@@ -43,6 +44,7 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
@@ -81,6 +83,7 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .prev-pokemon-img {
@@ -98,6 +101,7 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pokemon-header {
