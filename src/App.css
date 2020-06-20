@@ -208,3 +208,101 @@
   margin-bottom: 53px;
   margin-right: 51px;
 }
+
+@media only screen and (max-width: 600px) {
+  .pokemon-logo {
+    width: 265px;
+  }
+  
+  .ball-img {
+    height: 55vmin;
+  }
+
+  .card-img {
+    height: 400px;
+  }
+  
+  .ball-img:hover {
+    height: 56.5vmin;
+  }
+
+  .pokemon-img {
+    top: 39px;
+    height: 155px;
+  }
+
+  .prev-pokemon-img {
+    margin-top: 25px;
+    margin-left: 17px;
+    height: 33px;
+  }
+  
+  .pokemon-header {
+    margin-left: 70px;
+    margin-top: 12px;
+  }
+  
+  #pokemon-name {
+    font-size: 22px;
+  }
+  
+  .pokemon-hp-header {
+    margin-right: 40px;
+    margin-top: 12px;
+  }
+  
+  #pokemon-hp-text {
+    font-size: 9px;
+    margin-right: 1px;
+  }
+  
+  #pokemon-hp {
+    font-size: 22px;
+  }
+  
+  .pokemon-middle {
+    font-size: 8px;
+    top: 199px;
+  }
+  
+  #pokemon-attack-container-1 {
+    top: 220px;
+    left: 17px;
+    width: 237px;
+  }
+  
+  .attack-text-container {
+    width: 225px;
+  }
+  
+  .attack-text {
+    font-size: 20px;
+  }
+  
+  .attack-details {
+    font-size: 12px;
+  }
+  
+  .attack-dmg {
+    font-size: 17px;
+  }
+  
+  .attack-style-container {
+    margin-top: 5px;
+    width: 100px;
+  }
+  
+  .attack-style {
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  
+  .pokemon-bottom {
+    font-size: 6.2px;
+    width: 103px;
+    margin-bottom: 31px;
+    margin-right: 37px;
+  }
+}

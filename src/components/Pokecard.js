@@ -5,6 +5,7 @@ const useMetricSystem = true;
 
 class Pokecard extends React.Component {
 
+	// TODO: find easier solution
 	selectCard = (type, stage) => {
 		let cardSrc;
 
@@ -166,7 +167,7 @@ class Pokecard extends React.Component {
 	}
 
 	convertWeight = (hg) => {
-		return useMetricSystem ?  `${(hg*0.1).toFixed(1)} kg.` : `${(0.2204622622*hg).toFixed(1)} lbs.`;
+		return useMetricSystem ? `${(hg*0.1).toFixed(1)} kg.` : `${(0.2204622622*hg).toFixed(1)} lbs.`;
 	}
 
 	convertHeight = (dm) => {
@@ -185,8 +186,9 @@ class Pokecard extends React.Component {
 		}
 	}
 
+	// TODO: split up into more components
 	render() {
-		console.log("props", this.props.pokemon)
+		//console.log("props", this.props.pokemon)
 		return (
 			<div className="card-container">
 				<img src={require('../assets/pokemon/sugimori/' + this.props.pokemon.id + '.png')} className="pokemon-img" alt="Pokemon" />

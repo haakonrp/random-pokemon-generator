@@ -2,6 +2,8 @@ import React from 'react';
 import Pokecard from './Pokecard'
 import pokeball from '../assets/pokeball.svg';
 import logo from '../assets/logo.svg';
+
+// TODO: create & move to config file
 const POKEMON_API = 'https://pokeapi.co/api/v2/pokemon/';
 const POKEMON_SPECIES_API = 'https://pokeapi.co/api/v2/pokemon-species/';
 
@@ -21,6 +23,7 @@ class Ball extends React.Component {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  // TODO: add multiple moves
   selectMoveSet = (moves) => {
     let moveSet = [];
     const moveId1 = this.getRandomId(0, moves.length-1);
@@ -34,11 +37,8 @@ class Ball extends React.Component {
     this.setState({ pokemon: null });
   }
 
-  // 807 max id
-  // gen 1: 151
-  // gen 2: 251
+	// TODO: find better solution
   selectPokemon = (id, timeout) => {
-    //const id = 2; // this.getRandomId(1, 151)
     this.setState({ isLoading: true });
 
     // let animation play for 2s before fetching data
