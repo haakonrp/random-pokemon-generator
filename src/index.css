@@ -1,3 +1,73 @@
+@font-face {
+  font-family: 'Futura LT Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Futura LT Regular'), url('./fonts/FuturaLT.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura LT Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Futura LT Bold'), url('./fonts/FuturaLT-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura LT Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Futura LT Condensed'), url('./fonts/FuturaLT-Condensed.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Futura LT CondensedBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Futura LT CondensedBold'), url('./fonts/FuturaLT-CondensedBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gill Sans Std Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gill Sans Std Regular'), url('./fonts/GillSansStd.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gill Sans Std Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gill Sans Std Condensed'), url('./fonts/GillSansStdCondensed.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gill Sans Std Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gill Sans Std Bold'), url('./fonts/GillSansStdBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gill Sans Std Bold Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gill Sans Std Bold Condensed'), url('./fonts/GillSansStdBoldCondensed.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gill Sans Std Extra Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gill Sans Std Extra Bold'), url('./fonts/GillSansStdExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gill Sans Std Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gill Sans Std Light'), url('./fonts/GillSansStdLight.woff') format('woff');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
