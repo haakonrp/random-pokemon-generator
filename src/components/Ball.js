@@ -37,7 +37,7 @@ class Ball extends React.Component {
     this.setState({ pokemon: null });
   }
 
-	// TODO: find better solution
+	// TODO: find better solution than this clusterfk
   selectPokemon = (id, timeout) => {
     this.setState({ isLoading: true });
 
@@ -49,19 +49,23 @@ class Ball extends React.Component {
         fetch(pokemon.moves[this.getRandomId(0, pokemon.moves.length)].move.url) 
         .then(response => response.json())
         .then(moves => 
-          fetch(POKEMON_SPECIES_API + id) 
+          fetch(pokemon.types[0].type.url) 
           .then(response => response.json())
-          .then(species => {
-            if (species["evolves_from_species"] && !species["evolves_from_species"]["is_baby"]) { // not checking babies, gen 1 for now
-              fetch(species["evolves_from_species"].url) 
-              .then(response => response.json())
-              .then(prevSpecies => 
-                this.setState({ pokemon: {...pokemon, moves: [moves], species: {...species, evolves_from_species: prevSpecies} }, isLoading: false})
-              )
-            } else {
-              this.setState({ pokemon: {...pokemon, moves: [moves], species }, isLoading: false})
-            }
-          })
+          .then(type => 
+            fetch(POKEMON_SPECIES_API + id) 
+            .then(response => response.json())
+            .then(species => {
+              if (species["evolves_from_species"] && !species["evolves_from_species"]["is_baby"]) { // not checking babies, gen 1 for now
+                fetch(species["evolves_from_species"].url) 
+                .then(response => response.json())
+                .then(prevSpecies => 
+                  this.setState({ pokemon: {...pokemon, moves: [moves], type, species: {...species, evolves_from_species: prevSpecies} }, isLoading: false})
+                )
+              } else {
+                this.setState({ pokemon: {...pokemon, moves: [moves], species, type }, isLoading: false})
+              }
+            })
+          )
         )
       );
     }, timeout);
@@ -82,7 +86,7 @@ class Ball extends React.Component {
     return (
       <div className="container">
         <img src={logo} className="pokemon-logo" onClick={this.resetPokemon} alt="Pokemon Logo" />
-        {pokemon ? <Pokecard pokemon={pokemon} handlePrev={this.selectPokemon}/> : <img src={pokeball} className="ball-img" onClick={() => this.selectPokemon(this.getRandomId(1, 151), 2000)} alt="Pokeball" />}
+        {pokemon ? <Pokecard pokemon={pokemon} handlePrev={this.selectPokemon}/> : <img src={pokeball} className="ball-img" onClick={() => this.selectPokemon(this.getRandomId(1, 151), 1500)} alt="Pokeball" />}
       </div>
     );
   }

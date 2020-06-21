@@ -193,13 +193,46 @@
 }
 
 .attack-style {
-  background: black;
-  border: 2px solid gray;
   border-radius: 50%;
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#pokemon-weakness-container {
+  position: absolute;
+  bottom: 56px;
+  left: 35px;
+  display: flex;
+  align-items: center;
+}
+
+#pokemon-resistance-container {
+  position: absolute;
+  bottom: 56px;
+  left: 113px;
+  display: flex;
+  align-items: center;
+}
+
+#pokemon-retreat-container {
+  position: absolute;
+  bottom: 30px;
+  left: 82px;
+}
+
+.dmg-modifier {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
   margin-left: 2px;
   margin-right: 2px;
+}
+
+.dmg-modifier-text {
+  font-family: 'Futura LT CondensedBold';
+  font-size: 16px;
 }
 
 .pokemon-bottom {
@@ -297,10 +330,36 @@
   }
   
   .attack-style {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     margin-left: 2px;
     margin-right: 2px;
+  }
+
+  #pokemon-weakness-container {
+    bottom: 37px;
+    left: 22px;
+  }
+  
+  #pokemon-resistance-container {
+    bottom: 37px;
+    left: 73px;
+  }
+  
+  #pokemon-retreat-container {
+    bottom: 18px;
+    left: 53px;
+  }
+  
+  .dmg-modifier {
+    width: 11px;
+    height: 11px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .dmg-modifier-text {
+    font-size: 11px;
   }
   
   .pokemon-bottom {
