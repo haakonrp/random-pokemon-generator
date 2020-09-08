@@ -37,38 +37,34 @@ class Ball extends React.Component {
     this.setState({ pokemon: null });
   }
 
-	// TODO: find better solution than this clusterfk
-  selectPokemon = (id, timeout) => {
+  selectPokemon = async (id, timeout = 0) => {
     this.setState({ isLoading: true });
 
-    // let animation play for 2s before fetching data
+    const pokemonRes = await fetch(POKEMON_API + id);
+    const pokemon = await pokemonRes.json();
+
+    const movesRes = await fetch(pokemon.moves[this.getRandomId(0, pokemon.moves.length)].move.url);
+    const moves = await movesRes.json();
+
+    const typeRes = await fetch(pokemon.types[0].type.url);
+    const type = await typeRes.json();
+    
+    const speciesRes = await fetch(POKEMON_SPECIES_API + id);
+    const species = await speciesRes.json();
+
+    if (species["evolves_from_species"] && !species["evolves_from_species"]["is_baby"]) { // not checking babies, gen 1 for now
+      const prevSpeciesRes = await fetch(species["evolves_from_species"].url);
+      const prevSpecies = await prevSpeciesRes.json();
+      this.setState({ pokemon: {...pokemon, moves: [moves], type, species: {...species, evolves_from_species: prevSpecies} }})
+    } else {
+      this.setState({ pokemon: {...pokemon, moves: [moves], type, species }})
+    }
+
+    // let animation play
     setTimeout(() => {
-      fetch(POKEMON_API + id) 
-      .then(response => response.json())
-      .then(pokemon =>
-        fetch(pokemon.moves[this.getRandomId(0, pokemon.moves.length)].move.url) 
-        .then(response => response.json())
-        .then(moves => 
-          fetch(pokemon.types[0].type.url) 
-          .then(response => response.json())
-          .then(type => 
-            fetch(POKEMON_SPECIES_API + id) 
-            .then(response => response.json())
-            .then(species => {
-              if (species["evolves_from_species"] && !species["evolves_from_species"]["is_baby"]) { // not checking babies, gen 1 for now
-                fetch(species["evolves_from_species"].url) 
-                .then(response => response.json())
-                .then(prevSpecies => 
-                  this.setState({ pokemon: {...pokemon, moves: [moves], type, species: {...species, evolves_from_species: prevSpecies} }, isLoading: false})
-                )
-              } else {
-                this.setState({ pokemon: {...pokemon, moves: [moves], species, type }, isLoading: false})
-              }
-            })
-          )
-        )
-      );
+      this.setState({isLoading: false})
     }, timeout);
+    
   }
 
   render() {
@@ -86,7 +82,7 @@ class Ball extends React.Component {
     return (
       <div className="container">
         <img src={logo} className="pokemon-logo" onClick={this.resetPokemon} alt="Pokemon Logo" />
-        {pokemon ? <Pokecard pokemon={pokemon} handlePrev={this.selectPokemon}/> : <img src={pokeball} className="ball-img" onClick={() => this.selectPokemon(this.getRandomId(1, 151), 1500)} alt="Pokeball" />}
+        {pokemon ? <Pokecard pokemon={pokemon} handlePrev={this.selectPokemon}/> : <img src={pokeball} className="ball-img" onClick={() => this.selectPokemon(this.getRandomId(1, 151), 1000)} alt="Pokeball" />}
       </div>
     );
   }
