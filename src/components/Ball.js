@@ -69,7 +69,7 @@ class Ball extends React.Component {
 
   render() {
     const { pokemon, isLoading } = this.state;
-    
+
     if (isLoading) {
       return (
         <div className="container">
