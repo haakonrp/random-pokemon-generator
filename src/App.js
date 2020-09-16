@@ -2,7 +2,7 @@ import React from 'react';
 import Ball from './components/Ball'
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Ball/>
