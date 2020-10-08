@@ -50,7 +50,9 @@ const Ball = () => {
     if (species["evolves_from_species"] && !species["evolves_from_species"]["is_baby"]) { // not checking babies, gen 1 for now
       const prevSpeciesRes = await fetch(species["evolves_from_species"].url);
       const prevSpecies = await prevSpeciesRes.json();
-      setData({ pokemon: {...pokemon, moves: [moves], type, species: {...species, evolves_from_species: prevSpecies} }})
+      const prevPokemonRes = await fetch(POKEMON_API + prevSpecies.id);
+      const prevPokemon = await prevPokemonRes.json();
+      setData({ pokemon: {...pokemon, moves: [moves], type, species: {...species, evolves_from_species: prevPokemon} }})
     } else {
       setData({ pokemon: {...pokemon, moves: [moves], type, species }})
     }
@@ -65,15 +67,15 @@ const Ball = () => {
   return isLoading ? 
   (
     <div className="container">
-      <img src={logo} className="pokemon-logo" onClick={resetPokemon} alt="Pokemon Logo" />
-      <img src={pokeball} className="ball-img anim" alt="Pokeball" />
+      <img src={logo} className="pokemon-logo no-drag" onClick={resetPokemon} alt="Pokemon Logo" />
+      <img src={pokeball} className="ball-img anim no-drag" alt="Pokeball" />
     </div>
   ) 
   : 
   (
     <div className="container">
-      <img src={logo} className="pokemon-logo" onClick={resetPokemon} alt="Pokemon Logo" />
-      {data ? <Pokecard pokemon={data.pokemon} handlePrev={selectPokemon}/> : <img src={pokeball} className="ball-img" onClick={() => selectPokemon(getRandomId(1, 151), 1000)} alt="Pokeball" />}
+      <img src={logo} className="pokemon-logo no-drag" onClick={resetPokemon} alt="Pokemon Logo" />
+      {data ? <Pokecard pokemon={data.pokemon} handlePrev={selectPokemon}/> : <img src={pokeball} className="ball-img no-drag" onClick={() => selectPokemon(getRandomId(1, 151), 1000)} alt="Pokeball" />}
     </div>
   )
 }

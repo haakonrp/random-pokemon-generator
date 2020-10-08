@@ -13,18 +13,21 @@
   justify-content: center;
 }
 
-.pokemon-logo {
-  position: absolute;
-  top: 10px;
-  width: 365px;
-  transition: 0.1s linear;
-  cursor: pointer;
+.no-drag {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+.pokemon-logo {
+  position: absolute;
+  top: 10px;
+  width: 365px;
+  transition: 0.1s linear;
+  cursor: pointer;
 }
 
 @keyframes ballRoll {
@@ -39,12 +42,6 @@
   transition: 0.1s linear;
   transform-origin: bottom;
   cursor: pointer;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -webkit-tap-highlight-color: transparent;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
@@ -90,9 +87,8 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  margin-top: 40px;
-  margin-left: 25px;
-  height: 45px;
+  margin-top: 15px;
+  height: 100px;
   transition: 0.1s linear;
   cursor: pointer;
   user-select: none;
@@ -269,9 +265,9 @@
   }
 
   .prev-pokemon-img {
-    margin-top: 25px;
-    margin-left: 17px;
-    height: 33px;
+    margin-top: 5px;
+    margin-left: -5px;
+    height: 75px;
   }
   
   .pokemon-header {

@@ -229,7 +229,7 @@ const Pokecard = (props) => {
 		}
 
 		return moveInfo.map((src, index) =>
-			<img src={src} key={index} className="attack-style" alt="Element Symbol"></img>
+			<img src={src} key={index} className="attack-style no-drag" alt="Element Symbol"></img>
 		);
 	}
 
@@ -274,7 +274,7 @@ const Pokecard = (props) => {
 		if (symbolSrc) {
 			return (
 				<div id="pokemon-resistance-container">
-					<img src={symbolSrc} className="dmg-modifier" alt="Element Symbol"></img>
+					<img src={symbolSrc} className="dmg-modifier no-drag" alt="Element Symbol"></img>
 					<div className="dmg-modifier-text">-20</div>
 				</div>
 			);
@@ -322,7 +322,7 @@ const Pokecard = (props) => {
 		if (symbolSrc) {
 			return (
 				<div id="pokemon-weakness-container">
-					<img src={symbolSrc} className="dmg-modifier" alt="Element Symbol"></img>
+					<img src={symbolSrc} className="dmg-modifier no-drag" alt="Element Symbol"></img>
 					<div className="dmg-modifier-text">x2</div>
 				</div>
 			);
@@ -339,7 +339,7 @@ const Pokecard = (props) => {
 		return (
 			<div id="pokemon-retreat-container">
 				{list.map((obj) => 
-					<img src={NormalSymbol} key={obj} className="dmg-modifier" alt="Element Symbol"></img>
+					<img src={NormalSymbol} key={obj} className="dmg-modifier no-drag" alt="Element Symbol"></img>
 				)}
 			</div>
 		);
@@ -350,9 +350,9 @@ const Pokecard = (props) => {
 	return moveInfo ? 
 	(
 		<div className="card-container">
-			<img src={require('../assets/pokemon/sugimori/' + props.pokemon.id + '.png')} className="pokemon-img" alt="Pokemon" />
-			{props.pokemon.species["evolves_from_species"] && !props.pokemon.species["evolves_from_species"]["is_baby"] ? <img src={require('../assets/pokemon/gifs/xyani/' + props.pokemon.species["evolves_from_species"].name + '.gif')} className="prev-pokemon-img" onClick={() => props.handlePrev(props.pokemon.species["evolves_from_species"].id, 0)} alt="Previous Pokemon" /> : null }
-			<img src={selectCard(props.pokemon.type.name, findStage(props.pokemon.species["evolves_from_species"]))} className="card-img" alt="Pokecard" />
+			<img src={props.pokemon.sprites.other["official-artwork"]["front_default"]} className="pokemon-img no-drag" alt="Pokemon" />
+			{props.pokemon.species["evolves_from_species"] && !props.pokemon.species["evolves_from_species"]["is_baby"] ? <img src={props.pokemon.species["evolves_from_species"].sprites["front_default"]} className="prev-pokemon-img no-drag" onClick={() => props.handlePrev(props.pokemon.species["evolves_from_species"].id, 0)} alt="Previous Pokemon" /> : null }
+			<img src={selectCard(props.pokemon.type.name, findStage(props.pokemon.species["evolves_from_species"]))} className="card-img no-drag" alt="Pokecard" />
 			<div className="pokemon-info">
 				<p className="pokemon-header">
 					<span id="pokemon-name">{props.pokemon.name.replace("-m", " ♂").replace("-f", "♀")}</span>
